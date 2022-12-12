@@ -33,7 +33,7 @@ services:
       - ./back-end/package.json:/srv/back-end/package.json
       - ./back-end/yarn.lock:/srv/back-end/yarn.lock
       - ./back-end/tsconfig.json:/srv/back-end/tsconfig.json
-    command: bash -c 'yarn && yarn dev'
+    command: bash -c ' yarn && yarn dev'
     networks:
       - WebSocket-WebScraping
 
