@@ -14,6 +14,7 @@ function App() {
   const toExactMinute = 60000 - (new Date().getTime() % 60000);
 
   const socketUpdateData = () => {
+    console.log(new Date());      
     socket.emit('update-data');
     socket.on('update-data', async (dataReq) => {
       const newData = await dataReq;

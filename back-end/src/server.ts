@@ -15,7 +15,6 @@ app.use(express.json())
 app.use(route)
 
 io.on('connection', (socket: any) => {
-  console.log('funcionou');
   socket.on('update-data', async () => {
     const data = await scraping()
     io.emit('update-data', data)
