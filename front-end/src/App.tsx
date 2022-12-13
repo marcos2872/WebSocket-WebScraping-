@@ -11,25 +11,40 @@ console.log('sucesso');
 function App() {
   const [data, setData] = useState([])
 
-  const handleClick = () => {
+  const toExactMinute = 60000 - (new Date().getTime() % 60000);
+
+  const socketUpdateData = () => {
     socket.emit('update-data');
-    socket.on('update-data', async (data) => {
-      console.log(await data);
-      
+    socket.on('update-data', async (dataReq) => {
+      const newData = await dataReq;
+      if(JSON.stringify(data) === JSON.stringify(newData)) return null;
+      setData(newData);
     })
   }
-  // setInterval(handleClick, 60000)
+  
+  useEffect(() => {
+    socketUpdateData();
 
-  // useEffect(() => {
-  //   socket.emit('update-data');
-  //   socket.on('update-data', async (data) => {
-  //     setData(await data);
-  //   })
-  // }, [])
-  console.log(data);
+    setTimeout(function() {
+      setInterval(socketUpdateData, 60000);
+      // socket.off('update-data');
+  }, toExactMinute);
+  }, [])
+
   return (
     <div>
-      <button onClick={handleClick} >teste</button>
+      {data.map((t: any) => {
+        return (
+          <>
+          <p>{t.date}</p>
+          <p>{t.time}</p>
+          <p>{t.teamA}</p>
+          <p>{t.teamB}</p>
+          <br />
+
+          </>
+        )
+      })}
     </div>
   )
 }
