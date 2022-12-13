@@ -23,6 +23,7 @@ export const scraping = async () => {
           return {
             date: curr[0],
             time: curr[1],
+            evento: `${curr[2]} X ${curr[3]}`,
             teamA: curr[2],
             teamB: curr[3],
             superOdds: true,
@@ -36,6 +37,7 @@ export const scraping = async () => {
         return {
           date: curr[0],
           time: curr[1],
+          evento: `${curr[2]} X ${curr[3]}`,
           teamA: curr[2],
           teamB: curr[3],
           odds: {
