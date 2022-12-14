@@ -12,7 +12,7 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 const toExactMinute = 30000 - (new Date().getTime() % 30000);
-const PORT = process.env.PORT || 3333
+const PORT = process.env.PORT || 3300
 
 app.use(express.json())
 
@@ -32,4 +32,4 @@ setTimeout(function() {
   }, 30000);
 }, toExactMinute);
 
-server.listen(PORT, () => console.log('server running on port 3333'))
+server.listen(PORT, () => console.log('server running on localhost:3300'))
