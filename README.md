@@ -20,7 +20,7 @@
 > abra o navegador com a url 'http://localhost:3000/' para visualizar o projeto<br><br>
 
 >caso queira executar só o servidor back-end sem o socket<br>
->rode os comando do back-end e faça um requisição para a url 'http://localhost:3333/' no seu navegador.
+>rode os comando do back-end e faça um requisição para a url 'http://localhost:3300/' no seu navegador.
 
 - # OBS:
 > O projeto ainda não roda em docker.
